@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stealth Escape</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="ui">
+    <button onclick="prevLevel()">◀ Prev</button>
+    <span id="level">Level 1</span>
+    
+    <div>
+      <button onclick="togglePlay()" id="playBtn">Start</button>
+      <button onclick="restartLevel()">Restart</button>
+      <button onclick="nextLevel()">Next ▶</button>
+    </div>
+  </div>
+
+  <canvas id="gameCanvas" width="400" height="700"></canvas>
+
+  <script src="levels.js"></script>
+  <script src="utils.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

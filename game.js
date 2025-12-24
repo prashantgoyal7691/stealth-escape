@@ -32,7 +32,6 @@ function getRandomAxisDirection() {
   return dirs[Math.floor(Math.random() * dirs.length)];
 }
 
-/* ================= INPUT ================= */
 window.addEventListener("keydown", (e) => {
   keys[e.key] = true;
 });
@@ -40,7 +39,6 @@ window.addEventListener("keyup", (e) => {
   keys[e.key] = false;
 });
 
-/* ================= LOAD LEVEL ================= */
 function loadLevel(index) {
   resetKeys();
   const lvl = levels[index];
@@ -86,20 +84,19 @@ function loadLevel(index) {
   document.getElementById("level").innerText = `Level ${index + 1}`;
 }
 
-/* ================= MAIN LOOP ================= */
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   let prevX = player.x;
   let prevY = player.y;
 
-  /* ---- Player movement ---- */
+  // Player movement
   if (keys["ArrowUp"] || keys["w"]) player.y -= speed;
   if (keys["ArrowDown"] || keys["s"]) player.y += speed;
   if (keys["ArrowLeft"] || keys["a"]) player.x -= speed;
   if (keys["ArrowRight"] || keys["d"]) player.x += speed;
 
-  /* ---- Wall collision ---- */
+  // Prevent player from passing through walls
   for (let wall of walls) {
     if (circleRectCollision(player, wall)) {
       player.x = prevX;
@@ -108,7 +105,7 @@ function update() {
     }
   }
 
-  /* ---- Canvas bounds ---- */
+  // Keep player inside canvas
   player.x = Math.max(
     player.radius,
     Math.min(canvas.width - player.radius, player.x)
@@ -118,9 +115,10 @@ function update() {
     Math.min(canvas.height - player.radius, player.y)
   );
 
-  /* ---- Assassin random movement ---- */
+  // Assassin patrol logic
   for (let assassin of assassins) {
-    assassin.changeTimer++; // (1) INCREMENT changeTimer
+    // timer for direction change
+    assassin.changeTimer++;
     const radius = 12;
 
     /* ---- X movement ---- */
@@ -172,7 +170,7 @@ function update() {
       assassin.changeTimer = 0;
     }
 
-    // (6) FINAL SAFETY: never allow zero velocity
+    // safety check
     if (assassin.vx === 0 && assassin.vy === 0) {
       const dir = getRandomAxisDirection();
       assassin.vx = dir.vx * assassinSpeed;
@@ -180,7 +178,7 @@ function update() {
       assassin.targetDirection = dir.angle;
     }
 
-    // (7) SMOOTH ROTATION: ensure every frame
+    // smooth rotation
     let diff = assassin.targetDirection - assassin.direction;
     diff = Math.atan2(Math.sin(diff), Math.cos(diff));
 
@@ -191,17 +189,17 @@ function update() {
     }
   }
 
-  /* ---- Draw walls ---- */
+  // Draw walls
   ctx.fillStyle = "#334155";
   for (let wall of walls) {
     ctx.fillRect(wall.x, wall.y, wall.width, wall.height);
   }
 
-  /* ---- Draw exit ---- */
+  // Draw exit
   ctx.fillStyle = "#22c55e"; // green
   ctx.fillRect(exitZone.x, exitZone.y, exitZone.width, exitZone.height);
 
-  /* ---- Draw assassins + vision cones ---- */
+  // Draw enemies and vision cones
   for (let assassin of assassins) {
     const start = assassin.direction - assassin.visionAngle / 2;
     const end = assassin.direction + assassin.visionAngle / 2;
@@ -234,7 +232,7 @@ function update() {
     ctx.arc(assassin.x, assassin.y, 12, 0, Math.PI * 2);
     ctx.fill();
 
-    /* ---- Player detection ---- */
+    // Detection check
     if (isPlayerInVisionCone(player, assassin)) {
       let blocked = false;
 
@@ -254,13 +252,13 @@ function update() {
     }
   }
 
-  /* ---- Draw player ---- */
+  // Draw player
   ctx.fillStyle = "lime";
   ctx.beginPath();
   ctx.arc(player.x, player.y, player.radius, 0, Math.PI * 2);
   ctx.fill();
 
-  /* ---- Win condition ---- */
+  // Check win condition
   if (
     player.x > exitZone.x &&
     player.x < exitZone.x + exitZone.width &&
@@ -276,7 +274,6 @@ function update() {
   }
 }
 
-/* ================= COLLISION ================= */
 function circleRectCollision(circle, rect) {
   const cx = Math.max(rect.x, Math.min(circle.x, rect.x + rect.width));
   const cy = Math.max(rect.y, Math.min(circle.y, rect.y + rect.height));
@@ -394,8 +391,6 @@ function rayHitsWall(x1, y1, x2, y2, walls) {
 window.restartLevel = function () {
   loadLevel(currentLevel);
 };
-
-/* ================= START ================= */
 
 window.prevLevel = function () {
   let idx = (currentLevel - 1 + levels.length) % levels.length;

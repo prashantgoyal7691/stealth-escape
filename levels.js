@@ -1,36 +1,30 @@
+// Handcrafted level layouts for the game
 const ASSASSIN_VISION_RANGE = 150;
 const ASSASSIN_VISION_ANGLE = Math.PI / 4;
 
 const levels = [
-  /* ================= LEVEL 1 ================= */
   {
     start: { x: 200, y: 660 },
     exit: { x: 180, y: 40, width: 40, height: 40 },
     walls: [
-      /* ===== OUTER BOUNDARY (PORTRAIT 400 × 700) ===== */
       { x: 0, y: 0, width: 400, height: 20 },
       { x: 0, y: 680, width: 400, height: 20 },
       { x: 0, y: 0, width: 20, height: 700 },
       { x: 380, y: 0, width: 20, height: 700 },
 
-      /* ===== LOWER ROOM (START ZONE) ===== */
       { x: 120, y: 580, width: 50, height: 50 },
       { x: 230, y: 580, width: 50, height: 50 },
 
-      /* ===== MID-LOW COVER ===== */
       { x: 90,  y: 480, width: 40, height: 40 },
       { x: 160, y: 480, width: 40, height: 40 },
       { x: 230, y: 480, width: 40, height: 40 },
 
-      /* ===== VERTICAL SEPARATORS (TALL MAP FEEL) ===== */
       { x: 80,  y: 340, width: 20, height: 120 },
       { x: 300, y: 340, width: 20, height: 120 },
 
-      /* ===== MID-UP ROOM ===== */
       { x: 120, y: 260, width: 50, height: 50 },
       { x: 200, y: 260, width: 50, height: 50 },
 
-      /* ===== UPPER ROOM (EXIT APPROACH) ===== */
       { x: 90,  y: 140, width: 20, height: 100 },
       { x: 290, y: 140, width: 20, height: 100 },
 
@@ -47,36 +41,29 @@ const levels = [
     ],
   },
 
-  /* ================= LEVEL 2 ================= */
   {
     start: { x: 200, y: 660 },
     exit: { x: 180, y: 40, width: 40, height: 40 },
     walls: [
-      /* ===== OUTER BOUNDARY (PORTRAIT 400 × 700) ===== */
       { x: 0, y: 0, width: 400, height: 20 },
       { x: 0, y: 680, width: 400, height: 20 },
       { x: 0, y: 0, width: 20, height: 700 },
       { x: 380, y: 0, width: 20, height: 700 },
 
-      /* ===== LOWER ROOM (START AREA) ===== */
       { x: 110, y: 590, width: 50, height: 50 },
       { x: 240, y: 590, width: 50, height: 50 },
 
-      /* ===== MID-LOW COVER (MORE THAN LEVEL 1) ===== */
       { x: 70,  y: 500, width: 40, height: 40 },
       { x: 150, y: 500, width: 40, height: 40 },
       { x: 230, y: 500, width: 40, height: 40 },
       { x: 310, y: 500, width: 40, height: 40 },
 
-      /* ===== TALL VERTICAL SEPARATORS ===== */
       { x: 90,  y: 340, width: 20, height: 180 },
       { x: 290, y: 340, width: 20, height: 180 },
 
-      /* ===== MID-UP ROOM ===== */
       { x: 120, y: 260, width: 50, height: 50 },
       { x: 200, y: 260, width: 50, height: 50 },
 
-      /* ===== UPPER MAZE (MORE COMPLEX) ===== */
       { x: 70,  y: 150, width: 20, height: 120 },
       { x: 310, y: 150, width: 20, height: 120 },
 
@@ -101,35 +88,29 @@ const levels = [
     ],
   },
 
-  /* ================= LEVEL 3 ================= */
   {
     start: { x: 200, y: 660 },
     exit: { x: 180, y: 40, width: 40, height: 40 },
     walls: [
-      /* ===== OUTER BOUNDARY (PORTRAIT 400 × 700) ===== */
       { x: 0, y: 0, width: 400, height: 20 },
       { x: 0, y: 680, width: 400, height: 20 },
       { x: 0, y: 0, width: 20, height: 700 },
       { x: 380, y: 0, width: 20, height: 700 },
 
-      /* ===== DENSE LOWER COVER ===== */
       { x: 90,  y: 600, width: 40, height: 40 },
       { x: 150, y: 600, width: 40, height: 40 },
       { x: 210, y: 600, width: 40, height: 40 },
       { x: 270, y: 600, width: 40, height: 40 },
 
-      /* ===== LONG VERTICAL MAZE ===== */
       { x: 70,  y: 360, width: 20, height: 200 },
       { x: 310, y: 360, width: 20, height: 200 },
 
       { x: 150, y: 420, width: 50, height: 50 },
       { x: 200, y: 420, width: 50, height: 50 },
 
-      /* ===== MID-UP TIGHT PASSAGE ===== */
       { x: 120, y: 260, width: 20, height: 120 },
       { x: 260, y: 260, width: 20, height: 120 },
 
-      /* ===== FINAL CHOKE NEAR EXIT ===== */
       { x: 160, y: 140, width: 50, height: 50 }
     ],
     assassins: [
@@ -157,7 +138,6 @@ const levels = [
     ],
   },
 
-  /* ================= LEVEL 4 ================= */
   {
     start: { x: 200, y: 660 },
     exit: { x: 180, y: 40, width: 40, height: 40 },
@@ -192,7 +172,6 @@ const levels = [
     ],
   },
 
-  /* ================= LEVEL 5 ================= */
   {
     start: { x: 200, y: 660 },
     exit: { x: 180, y: 40, width: 40, height: 40 },
@@ -228,7 +207,6 @@ const levels = [
     ],
   },
 
-  /* ================= LEVEL 6 ================= */
   {
     start: { x: 200, y: 660 },
     exit: { x: 180, y: 40, width: 40, height: 40 },
@@ -262,7 +240,6 @@ const levels = [
     ],
   },
 
-  /* ================= LEVEL 7 ================= */
   {
     start: { x: 200, y: 660 },
     exit: { x: 180, y: 40, width: 40, height: 40 },
@@ -296,7 +273,6 @@ const levels = [
     ],
   },
 
-  /* ================= LEVEL 8 ================= */
   {
     start: { x: 200, y: 660 },
     exit: { x: 180, y: 40, width: 40, height: 40 },
@@ -333,7 +309,6 @@ const levels = [
     ],
   },
 
-  /* ================= LEVEL 9 ================= */
   {
     start: { x: 200, y: 660 },
     exit: { x: 180, y: 40, width: 40, height: 40 },
@@ -368,7 +343,6 @@ const levels = [
     ],
   },
 
-  /* ================= LEVEL 10 ================= */
   {
     start: { x: 200, y: 660 },
     exit: { x: 180, y: 40, width: 40, height: 40 },

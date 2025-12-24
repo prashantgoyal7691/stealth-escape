@@ -46,16 +46,6 @@ Note: The game is currently optimized for desktop browsers with keyboard control
 
 🔗 https://stealth-escape.netlify.app
 
-⸻
-
-📂 Project Structure
-          stealth-escape/
-          ├── index.html
-          ├── styles.css
-          ├── game.js
-          ├── levels.js
-          └── utils.js
-
 📌 Future Improvements
 	•	Mobile touch controls
 	•	Sound effects and visual polish
